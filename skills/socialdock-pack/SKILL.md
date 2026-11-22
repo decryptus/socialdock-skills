@@ -8,9 +8,8 @@ description: Build a SocialDock pack ZIP (YouTube titles/descriptions and per-ne
 Turn a video and a few words about it into a **SocialDock pack**: one ZIP that the
 SocialDock Chrome extension or Android app imports to publish the same video on
 YouTube, Instagram, Facebook, LinkedIn, TikTok, Pinterest and Threads, in several
-languages. You write the texts; `scripts/build_pack.py` lays out the files and
-checks every network limit. Nothing is published: the user reviews everything in
-SocialDock before publishing.
+languages. You write the texts and build the ZIP. Nothing is published: the user
+reviews everything in SocialDock before publishing.
 
 ## 1. Gather the inputs
 
@@ -20,7 +19,7 @@ Ask only for what is missing:
   `en.mp4`, `fr.mp4`). One video for all languages is fine when it has no voice or
   burned-in text; a language without its own edit must not claim a dubbed voice.
 - **What the video is about**: subject, audience, tone, links or call to action,
-  hashtags the user wants or refuses, brand words to keep untranslated.
+  hashtags wanted or refused, brand words to keep untranslated.
 - **Networks** (default: YouTube, Instagram, Facebook, LinkedIn, TikTok) and
   **languages** (default: the languages of the edits).
 
@@ -33,71 +32,46 @@ Write natively in each language (not a literal translation) and adapt to each ne
 
 | Network | What to write | Hard limit |
 | --- | --- | --- |
-| YouTube | `title` (searchable, front-loaded) and `description` (summary, chapters if given, links) | title 100 characters, description 5,000 UTF-8 bytes, tags 450 characters in total |
+| YouTube | Title (searchable, front-loaded) and description (summary, chapters if given, links) | Title 100 characters, description 5,000 UTF-8 bytes, tags 450 characters in total |
 | Instagram | Reel caption: hook in the first line, short paragraphs, 3–8 relevant hashtags at the end | 2,200 characters |
 | TikTok | Short, conversational caption, 3–5 hashtags (the user pastes it in TikTok) | 2,200 characters |
 | Facebook | Page Reel caption, one clear call to action | 63,206 characters (keep it short) |
 | LinkedIn | Professional post: insight first, line breaks, 0–3 hashtags | 3,000 characters |
-| Pinterest | `title` (keywords) and description as caption | title 100, caption 800 characters |
+| Pinterest | Pin title (keywords) and description as caption | Title 100, caption 800 characters |
 | Threads | Very short, conversational | 500 UTF-8 bytes |
 
-No `<` or `>` characters anywhere. Keep URLs as given by the user.
+No `<` or `>` characters anywhere. Keep URLs exactly as given. Count characters
+(and UTF-8 bytes where stated) before writing files, and shorten anything over a limit.
 
-## 3. Write the brief and build the ZIP
+## 3. Build the ZIP
 
-Save the texts as JSON (paths are local files):
+Write exactly this layout with Python's `zipfile` (or any ZIP tool):
 
-```json
-{
-  "videos": {"en": "/path/en.mp4", "fr": "/path/fr.mp4"},
-  "youtube": {
-    "sourceLanguage": "en",
-    "tags": ["monitoring", "docker"],
-    "categoryId": "28",
-    "thumbnail": "/path/thumbnail.png",
-    "texts": {
-      "en": {"title": "…", "description": "…"},
-      "fr": {"title": "…", "description": "…"}
-    }
-  },
-  "networks": {
-    "instagram": {"en": "caption…", "fr": "légende…"},
-    "linkedin": {"en": "…", "fr": "…"},
-    "pinterest": {"en": {"title": "…", "caption": "…"}}
-  }
-}
-```
+- `common/<lang>/video.mp4`: each edit, **stored uncompressed** (`ZIP_STORED`;
+  enable ZIP64 for large files). Check that each file starts with an MP4 `ftyp` box.
+- `youtube/post.json`:
+  `{"version":1,"video":"<source>/video.mp4","sourceLanguage":"<source>","languages":["en","fr"],"categoryId":"28","tags":[]}`.
+  The source language's edit is the YouTube video; the other languages become its
+  translations. If a thumbnail is given (PNG or JPEG, 50 MiB maximum), add it as
+  `youtube/thumbnail.png` (or `.jpg`) and `"thumbnail":"thumbnail.png"`.
+- `youtube/<lang>/title.txt` and `youtube/<lang>/description.txt` (UTF-8) for every
+  language listed in `languages`.
+- `<network>/<lang>/caption.txt` (UTF-8) for each social network (`instagram`,
+  `facebook`, `linkedin`, `tiktok`, `pinterest`, `threads`) and language, plus
+  `pinterest/<lang>/title.txt` when a Pin title is given. Every `<network>/<lang>/`
+  needs a matching `common/<lang>/video.mp4`.
+- Lowercase network and language folder names, valid language codes (`en`, `fr`,
+  `pt-BR`), nothing else in the archive. YouTube is optional: a pack can target only
+  social networks, but `common/` alone publishes nothing.
 
-Then run:
-
-```sh
-python3 scripts/build_pack.py brief.json my-pack.zip
-```
-
-The script refuses a brief that breaks a limit and says which text to shorten:
-fix the text and run it again. `thumbnail` and `categoryId` are optional; YouTube
-is optional too (a pack can target only social networks). The YouTube video is the
-source language's edit; the other languages become YouTube translations of it.
-
-### Without the script
-
-When `scripts/build_pack.py` is not available, write the same layout with any ZIP
-tool, checking the limits of step 2 yourself:
-
-- `common/<lang>/video.mp4`: each edit, stored uncompressed.
-- `youtube/post.json`: `{"version":1,"video":"<source>/video.mp4","sourceLanguage":"<source>","languages":[…],"categoryId":"28","tags":[…]}`
-  (add `"thumbnail":"thumbnail.png"` with `youtube/thumbnail.png` if given).
-- `youtube/<lang>/title.txt` and `youtube/<lang>/description.txt` for every language in `languages`.
-- `<network>/<lang>/caption.txt` for each social network and language (UTF-8),
-  plus `pinterest/<lang>/title.txt` when a Pin title is given. Every
-  `<network>/<lang>/` needs a `common/<lang>/video.mp4`.
-- Lowercase network and language folder names; no other files are needed.
+After writing, list the archive, re-read each text file and check it against the
+limits above.
 
 ## 4. Hand over
 
 Give the user the ZIP and a short table of what it contains (network × language,
 first words of each caption). Remind them to import it in SocialDock
 (**Publications → Import a pack**), review the captions and destinations, then
-publish. Local ZIPs can hold videos up to 16 GiB.
+publish. Local packs can hold videos up to 16 GiB.
 
 More about SocialDock and the pack format: https://app.socialdock.studio/skill

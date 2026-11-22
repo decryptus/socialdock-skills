@@ -1,5 +1,5 @@
-![SocialDock](assets/socialdock-skill-horizontal-color.svg#gh-light-mode-only)
-![SocialDock](assets/socialdock-skill-horizontal-dark.svg#gh-dark-mode-only)
+![SocialDock](assets/socialdock-skill-banner-light.png#gh-light-mode-only)
+![SocialDock](assets/socialdock-skill-banner-dark.png#gh-dark-mode-only)
 
 # SocialDock skill for Claude
 
@@ -27,7 +27,8 @@ published.
 > to our website.
 
 Claude asks only for what is missing, writes the texts within each network's
-limits, builds the ZIP and hands it over with a table of what it contains.
+limits, builds the ZIP with its own file tools and hands it over with a table of
+what it contains.
 
 ## What you get
 
@@ -51,8 +52,8 @@ Threads 500 UTF-8 bytes. Every network and language needs a matching video edit.
 - Makes **no network requests**, sends **no data** anywhere, needs **no account,
   API key or token**, and **never publishes**: publishing happens later, in
   SocialDock, after your confirmation.
-- `skills/socialdock-pack/scripts/build_pack.py` uses the Python standard library
-  only (no package install). Read it: it is short.
+- The plugin is a single instruction file, `skills/socialdock-pack/SKILL.md`: no
+  scripts, no dependencies, nothing to install. Read it: it is short.
 
 ## Pack format
 
