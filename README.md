@@ -62,5 +62,5 @@ Local packs can hold videos up to 16 GiB.
 
 ## Support
 
-DooWan · [socialdock@doowan.net](mailto:socialdock@doowan.net) ·
+DooWan · [contact@socialdock.studio](mailto:contact@socialdock.studio) ·
 [app.socialdock.studio/skill](https://app.socialdock.studio/skill) · MIT licence
