@@ -1,0 +1,17 @@
+{
+  "name": "socialdock",
+  "owner": {
+    "name": "DooWan",
+    "email": "socialdock@doowan.net"
+  },
+  "plugins": [
+    {
+      "name": "socialdock",
+      "source": "./",
+      "description": "Write YouTube titles and descriptions and per-network captions in several languages from a video and a short brief, then build a SocialDock pack ZIP ready to import. Runs locally; nothing is sent or published."
+    }
+  ],
+  "metadata": {
+    "description": "SocialDock plugins for Claude: prepare multilingual video packs for YouTube and social networks."
+  }
+}
