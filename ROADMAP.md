@@ -19,5 +19,7 @@
   briefs; tune the per-network guidance.
 - Keep the layout and limits in step with the SocialDock pack format; consider a
   second skill for reviewing or adapting existing captions.
-- Later, the same assistant inside the SocialDock extension and app (roadmap of
-  `decryptus/socialdock`).
+- The same assistant now runs inside the SocialDock extension and app (pack
+  creator "Suggest with AI", with the person's own Anthropic/OpenAI key, Ollama or
+  SocialDock AI; November 23, 2026). Keep its per-network guidance in step with
+  this skill.
