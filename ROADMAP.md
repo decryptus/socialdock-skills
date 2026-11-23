@@ -23,3 +23,7 @@
   creator "Suggest with AI", with the person's own Anthropic/OpenAI key, Ollama or
   SocialDock AI; November 23, 2026). Keep its per-network guidance in step with
   this skill.
+
+## ChatGPT
+
+- Custom GPT "SocialDock Pack" prepared in `chatgpt/` (November 23, 2026): instructions derived from the skill, settings and publication steps. Not yet created in ChatGPT (needs the owner's ChatGPT account and builder-profile domain verification).

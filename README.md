@@ -65,3 +65,10 @@ Local packs can hold videos up to 16 GiB.
 
 DooWan · [contact@socialdock.studio](mailto:contact@socialdock.studio) ·
 [app.socialdock.studio/skill](https://app.socialdock.studio/skill) · MIT licence
+
+## ChatGPT
+
+The same pack builder exists as a custom GPT for ChatGPT users: see
+[`chatgpt/`](chatgpt/README.md) for its instructions and settings. It also only
+prepares files, under the user's own ChatGPT account.
+
