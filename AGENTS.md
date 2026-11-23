@@ -153,6 +153,21 @@ are debt to remove, not examples to copy.
   contact changes to `decryptus/socialdock-core`. This repository only mirrors
   them. Record in the contribution which repository owns a new rule.
 
+## Brand assets placement
+
+- Keep brand assets under `assets/brand/`: `png/` for raster exports and
+  `social/` for the GitHub social preview and Open Graph images. Do not add
+  `svg/` or any SVG: the directory rules above allow no SVG other than the icon.
+- The listing icon stays at `.claude-plugin/icon.png`; the directory froze it at
+  the first submission. Never move or replace it.
+- Name new files without the project prefix and, for raster exports, with the
+  pixel width: `logo-horizontal-1024.png`, `logo-horizontal-dark-1024.png`.
+- Keep the GitHub social preview at
+  `assets/brand/social/social-preview-1280x640.png` (1280×640, under 1 MB),
+  derived from the existing artwork. Do not redesign the brand.
+- Do not move or rename an existing asset without updating every reference
+  (README, plugin metadata, website) in the same change.
+
 ## Commit authorship
 
 Write every commit as `decryptus <decryptus@users.noreply.github.com>`, as both author and committer (run `git config user.name decryptus` and `git config user.email decryptus@users.noreply.github.com` before committing, including when rebasing). Do not add `Co-Authored-By` lines, session links or any mention of an assistant or tool in commit messages. Do not rewrite history already published on the default branch to fix older commits.
