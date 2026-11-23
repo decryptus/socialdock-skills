@@ -21,3 +21,7 @@
   second skill for reviewing or adapting existing captions.
 - Later, the same assistant inside the SocialDock extension and app (roadmap of
   `decryptus/socialdock`).
+
+## ChatGPT
+
+- Custom GPT "SocialDock Pack" prepared in `chatgpt/` (November 23, 2026): instructions derived from the skill, settings and publication steps. Not yet created in ChatGPT (needs the owner's ChatGPT account and builder-profile domain verification).
