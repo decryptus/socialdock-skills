@@ -4,7 +4,8 @@ This public repository distributes the SocialDock plugin for Claude
 (`socialdock`), listed in Anthropic's plugin directory and installable from
 Claude Code with `/plugin install socialdock --marketplace decryptus/socialdock-skills`.
 It holds the plugin manifest, the marketplace manifest, the listing icon and
-banners, and the `socialdock-pack` skill.
+banners, the `socialdock-pack` skill, and `chatgpt/`, the same builder as a custom
+GPT for ChatGPT (instructions mirrored from the skill, Markdown only).
 
 The SocialDock product lives elsewhere and owns the contracts this plugin
 follows: the private [decryptus/socialdock](https://github.com/decryptus/socialdock)
