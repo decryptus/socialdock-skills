@@ -151,3 +151,7 @@ are debt to remove, not examples to copy.
 - Pack-format and limit changes belong to `decryptus/socialdock`; site and
   contact changes to `decryptus/socialdock-core`. This repository only mirrors
   them. Record in the contribution which repository owns a new rule.
+
+## Commit authorship
+
+Write every commit as `decryptus <decryptus@users.noreply.github.com>`, as both author and committer (run `git config user.name decryptus` and `git config user.email decryptus@users.noreply.github.com` before committing, including when rebasing). Do not add `Co-Authored-By` lines, session links or any mention of an assistant or tool in commit messages. Do not rewrite history already published on the default branch to fix older commits.
