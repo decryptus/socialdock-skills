@@ -1,14 +1,14 @@
 {
   "name": "socialdock",
   "displayName": "SocialDock",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Write YouTube titles and descriptions and per-network captions in several languages from a video and a short brief, then build a SocialDock pack ZIP ready to import. Runs locally; nothing is sent or published.",
   "author": {
-    "name": "DooWan",
+    "name": "Le New Deal",
     "email": "contact@socialdock.studio",
-    "url": "https://app.socialdock.studio/skill"
+    "url": "https://socialdock.studio/skill"
   },
-  "homepage": "https://app.socialdock.studio/skill",
+  "homepage": "https://socialdock.studio/skill",
   "repository": "https://github.com/decryptus/socialdock-skills",
   "license": "MIT",
   "keywords": [
@@ -23,8 +23,8 @@
     "multilingual"
   ],
   "icon": ".claude-plugin/icon.png",
-  "privacyPolicyUrl": "https://app.socialdock.studio/privacy",
-  "termsOfServiceUrl": "https://app.socialdock.studio/terms",
+  "privacyPolicyUrl": "https://socialdock.studio/privacy",
+  "termsOfServiceUrl": "https://socialdock.studio/terms",
   "supportUrl": "mailto:contact@socialdock.studio",
-  "documentationUrl": "https://app.socialdock.studio/skill"
+  "documentationUrl": "https://socialdock.studio/skill"
 }

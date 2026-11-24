@@ -69,7 +69,7 @@ first words of each caption). Remind them to import it in SocialDock
 (**Publications → Import a pack**), review the captions and destinations, then
 publish. ChatGPT accepts uploads up to 512 MB per file: for larger videos, give the user the ZIP without videos plus the exact `common/<lang>/video.mp4` paths to add on their computer (videos stored uncompressed), or suggest the SocialDock pack creator.
 
-More about SocialDock and the pack format: https://app.socialdock.studio/skill
+More about SocialDock and the pack format: https://socialdock.studio/skill
 
 ## Behaviour
 
