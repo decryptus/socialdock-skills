@@ -22,6 +22,17 @@
 - Later, the same assistant inside the SocialDock extension and app (roadmap of
   `decryptus/socialdock`).
 
-## ChatGPT
+## ChatGPT — package prepared November 24, 2026
 
-- Custom GPT "SocialDock Pack" prepared in `chatgpt/` (November 23, 2026): instructions derived from the skill, settings and publication steps. Not yet created in ChatGPT (needs the owner's ChatGPT account and builder-profile domain verification).
+- Public skills-only plugin 1.0.0: `chatgpt/plugin.json`, English and French
+  directory metadata, shared `assets/icon.png` and `skills/socialdock-pack/SKILL.md`.
+- Provider-specific metadata and guides are separated: `.claude-plugin/` for
+  the existing Claude integration, `chatgpt/` for OpenAI. Pack instructions remain
+  shared; the obsolete custom GPT instruction copy now points to that source.
+- Reproducible ZIP assembly and submission steps: `chatgpt/PUBLISHING.md`.
+- Status: prepared, not uploaded to OpenAI, not submitted, not approved, not
+  published. Local package checks do not replace directory review.
+- Before release: validate the assembled package in the OpenAI portal, test it
+  in a fresh ChatGPT conversation, and update the public skill page with the
+  actual install link only after publication. Claude portal validation remains
+  required before merging repository-structure changes to `main`.

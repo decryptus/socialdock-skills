@@ -1,9 +1,9 @@
 ![SocialDock](assets/socialdock-skill-banner-light.png#gh-light-mode-only)
 ![SocialDock](assets/socialdock-skill-banner-dark.png#gh-dark-mode-only)
 
-# SocialDock skill for Claude
+# SocialDock skills for Claude and ChatGPT
 
-**One video, every network, every language.** Give Claude your video edits and a
+**One video, every network, every language.** Give the model your video edits and a
 few words about the video: it writes the YouTube titles and descriptions and the
 captions for Instagram, Facebook, LinkedIn, TikTok, Pinterest and Threads, natively
 in each language you need, then builds a **SocialDock pack**, one ZIP that the
@@ -26,7 +26,7 @@ published.
 > LinkedIn. It's a tutorial on monitoring Docker containers, friendly tone, link
 > to our website.
 
-Claude asks only for what is missing, writes the texts within each network's
+The model asks only for what is missing, writes the texts within each network's
 limits, builds the ZIP with its own file tools and hands it over with a table of
 what it contains.
 
@@ -47,11 +47,12 @@ Threads 500 UTF-8 bytes. Every network and language needs a matching video edit.
 
 ## Private by design
 
-- Reads only the local files you point it to (your MP4 edits and an optional
-  thumbnail) and writes one ZIP file next to them.
-- Makes **no network requests**, sends **no data** anywhere, needs **no account,
-  API key or token**, and **never publishes**: publishing happens later, in
-  SocialDock, after your confirmation.
+- Reads the video edits and optional thumbnail you provide and creates a ZIP
+  using the host's file tools. In hosted environments such as ChatGPT, files and
+  prompts are processed under that service's data controls.
+- The plugin makes **no network requests**, sends no data to SocialDock servers
+  or social networks, needs **no SocialDock account, API key or token**, and
+  **never publishes**. Publishing happens later in SocialDock after your review.
 - The plugin is a single instruction file, `skills/socialdock-pack/SKILL.md`: no
   scripts, no dependencies, nothing to install. Read it: it is short.
 
@@ -68,7 +69,10 @@ DooWan · [contact@socialdock.studio](mailto:contact@socialdock.studio) ·
 
 ## ChatGPT
 
-The same pack builder exists as a custom GPT for ChatGPT users: see
-[`chatgpt/`](chatgpt/README.md) for its instructions and settings. It also only
-prepares files, under the user's own ChatGPT account.
+The public ChatGPT plugin is prepared but is **not yet submitted, approved or
+published** in the OpenAI directory. See [`chatgpt/`](chatgpt/README.md) for its
+capabilities and requirements. It uses the same shared skill and prepares files
+under the user's own ChatGPT account. Creating the ZIP requires file tools;
+attachment and output limits depend on the host, independently of SocialDock's
+local pack capacity.
 

@@ -4,8 +4,12 @@ This public repository distributes the SocialDock plugin for Claude
 (`socialdock`), listed in Anthropic's plugin directory and installable from
 Claude Code with `/plugin install socialdock --marketplace decryptus/socialdock-skills`.
 It holds the plugin manifest, the marketplace manifest, the listing icon and
-banners, the `socialdock-pack` skill, and `chatgpt/`, the same builder as a custom
-GPT for ChatGPT (instructions mirrored from the skill, Markdown only).
+banners and the shared `socialdock-pack` skill. Provider-specific metadata stays
+in `.claude-plugin/` for Claude and `chatgpt/` for the public ChatGPT plugin.
+`chatgpt/plugin.json` is source metadata: assemble it at the ZIP root together
+with the shared skill and assets as documented in `chatgpt/PUBLISHING.md`.
+Do not duplicate the skill or put an OpenAI manifest at the repository root,
+which remains the existing Claude plugin root.
 
 The SocialDock product lives elsewhere and owns the contracts this plugin
 follows: the private [decryptus/socialdock](https://github.com/decryptus/socialdock)
@@ -57,9 +61,11 @@ are debt to remove, not examples to copy.
 
 ## Product constraints
 
-- Private by design: a skill reads only the local files the user names and writes
-  the pack next to them. No network requests, no data sent, no account, key or
-  token, no telemetry. Any change to this requires an explicit product decision
+- Private by design: a skill reads only the files the user provides and writes
+  the pack using the host's file tools. Hosted services process those files under
+  their own data controls; do not claim all processing stays on the user's device.
+  The plugin makes no network requests, sends no data to SocialDock or social
+  networks, requires no SocialDock account, key or token, and adds no telemetry. Any change to this requires an explicit product decision
   and an updated README, listing answers and privacy page.
 - Never store or relay customer video bytes on SocialDock servers (same rule as
   SocialDock); the plugin never handles hosting.
