@@ -36,3 +36,12 @@
   in a fresh ChatGPT conversation, and update the public skill page with the
   actual install link only after publication. Claude portal validation remains
   required before merging repository-structure changes to `main`.
+
+## ChatGPT 1.0.1 — corrected draft, November 24, 2026
+
+- Set author and displayed developer to Le New Deal and align the packaged guide
+  and license with the publisher already recorded on main.
+- The uploaded 1.0.0 draft shows Needs attention: the OpenAI portal reports that
+  new skills-only submissions are not accepted, plus a category warning.
+- The corrected 1.0.1 ZIP is prepared for manual upload, not submitted, approved
+  or published. Changing publisher metadata does not remove the submission block.

@@ -86,5 +86,9 @@ limits. No SocialDock account, social-network token or API key is needed here.
 - <https://developers.openai.com/plugins/deploy/submission>
 - <https://developers.openai.com/plugins/guides/submit-claude-plugin>
 
-Status on November 24, 2026: source package prepared; OpenAI portal upload,
-review and publication remain outstanding.
+Status on November 24, 2026: the uploaded 1.0.0 draft shows Needs attention.
+The portal reports that new skills-only submissions are not being accepted.
+Version 1.0.1 corrects both publisher fields to Le New Deal and is prepared for
+manual upload using Upload new version. This metadata correction does not resolve
+the skills-only submission restriction. No MCP server is included. Approval and
+publication remain outstanding.

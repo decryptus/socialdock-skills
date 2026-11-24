@@ -1,10 +1,10 @@
 {
   "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
   "name": "socialdock",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Create multilingual captions and importable SocialDock video pack ZIPs from your videos and brief.",
   "author": {
-    "name": "DooWan",
+    "name": "Le New Deal",
     "email": "contact@socialdock.studio",
     "url": "https://socialdock.studio/skill"
   },
@@ -28,7 +28,7 @@
         "displayName": "SocialDock",
         "shortDescription": "Multilingual video packs",
         "longDescription": "Turn your videos and brief into a SocialDock pack ZIP with YouTube titles and descriptions and captions for Instagram, Facebook, LinkedIn, TikTok, Pinterest and Threads. Review the texts and import the ZIP into SocialDock to publish. File creation requires an execution environment; upload and output limits depend on your ChatGPT surface. The plugin does not connect to social accounts or publish posts.",
-        "developerName": "DooWan",
+        "developerName": "Le New Deal",
         "category": "Productivity",
         "capabilities": [
           "Write captions",
@@ -47,7 +47,7 @@
         "logo": "./assets/icon.png"
       },
       "publication": {
-        "release_notes": "Initial ChatGPT package using the existing SocialDock pack builder skill. No MCP server, credentials or automatic publishing.",
+        "release_notes": "Correct the publisher to Le New Deal. Instructions-only package; no MCP server or automatic publishing.",
         "translations": {
           "fr-FR": {
             "subtitle": "Packs vidéo multilingues",

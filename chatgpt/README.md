@@ -1,6 +1,6 @@
 # SocialDock for ChatGPT
 
-The public plugin is prepared but is not yet submitted, approved or published in the OpenAI directory.
+The public plugin is available as a draft package and is not approved or published in the OpenAI directory.
 
 Create multilingual SocialDock video packs from a video and a brief. The plugin bundles the existing SocialDock pack builder instructions for YouTube, Instagram, Facebook, LinkedIn, TikTok, Pinterest and Threads.
 
@@ -18,7 +18,7 @@ The complete workflow needs an environment capable of reading files and creating
 
 The plugin contains instructions and a logo only. It has no MCP server, account connection, API key, telemetry or publishing tool. Videos and briefs are handled by the ChatGPT environment in which you use it, subject to that service's data controls. The plugin does not send them to SocialDock servers or social networks. Publication takes place separately in SocialDock, after your review.
 
-Publisher: DooWan. Support: contact@socialdock.studio.
+Publisher: Le New Deal. Support: contact@socialdock.studio.
 
 [Documentation](https://socialdock.studio/skill) · [Privacy](https://socialdock.studio/privacy) · [Terms](https://socialdock.studio/terms)
 
