@@ -53,7 +53,10 @@
 - Server implementation: `decryptus/socialdock-core`, PR #68; intended URL
   `https://api.socialdock.studio/mcp`, same existing core port.
 - Keep `chatgpt/` maintained as the standalone version. No shared skill change.
-- Outstanding: core CI/deployment, public privacy/skill disclosure updates,
+- Core CI passed: 34 MCP Lua contracts and 6 actual HTTP tests. Package archive
+  checks and Claude CLI validation passed. OpenAI portal ingestion must confirm
+  its documented authentication extension (not recognized by the generic schema).
+- Outstanding: core deployment, public privacy/skill disclosure updates,
   ChatGPT acceptance and demo recording, Claude structural validation before
   main merge, new MCP draft, domain verification, review and publication.
 - No connected package has been submitted or approved by these source changes.

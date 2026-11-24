@@ -46,6 +46,16 @@ tools. Never reuse extension OAuth tokens or insert a secret into the package.
 Five positive and three negative review cases are prepared in `plugin.json`;
 these are expected behaviors to test, not results already observed.
 
+Validation on November 24, 2026: the 7-entry development ZIP and byte-identical
+shared reference passed inspection; `claude plugin validate .` passed with no
+findings. `plugin.json` passed the published portable JSON schema. The generic
+MCP 1.0.0 JSON schema currently rejects per-server `extensions`, while the
+current OpenAI packaging guide explicitly documents
+`extensions.com.openai.auth.type: none` there. Keep the documented OpenAI setting
+and verify ingestion in the OpenAI portal; do not report full generic MCP schema
+validation or portal acceptance as passed. This discrepancy is separate from
+the server's successful runtime tests.
+
 ## Acceptance before submission
 
 1. Pass the core's actual OpenResty/HTTP tests and deploy through its existing
