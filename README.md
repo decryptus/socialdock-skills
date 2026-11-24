@@ -63,7 +63,7 @@ Local packs can hold videos up to 16 GiB.
 
 ## Support
 
-DooWan · [contact@socialdock.studio](mailto:contact@socialdock.studio) ·
+Le New Deal · [contact@socialdock.studio](mailto:contact@socialdock.studio) ·
 [app.socialdock.studio/skill](https://app.socialdock.studio/skill) · MIT licence
 
 ## ChatGPT

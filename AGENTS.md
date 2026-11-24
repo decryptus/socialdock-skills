@@ -66,7 +66,7 @@ are debt to remove, not examples to copy.
 - Never invent facts, prices, dates, results or quotes in generated texts; a thin
   brief yields neutral texts and a note on what to add.
 - Never present the plugin as official Anthropic software or use another brand's
-  name or likeness. The listing name is `socialdock`, publisher DooWan.
+  name or likeness. The listing name is `socialdock`, publisher Le New Deal.
 - Contact for Anthropic and users: contact@socialdock.studio.
 
 ## Directory rules (blocking)
@@ -110,7 +110,7 @@ are debt to remove, not examples to copy.
 ## Copyright review
 
 - Review project-owned copyright notices and manifest metadata when preparing a
-  release. Keep the original start year and attribution (DooWan, 2026) and update
+  release. Keep the original start year and attribution (Le New Deal, 2026; published as DooWan until November 24, 2026) and update
   the end year for maintained material to reflect actual project work.
 - Keep `plugin.json`, `marketplace.json`, the README and the LICENSE consistent.
   Do not alter the dates in the standard license text.
