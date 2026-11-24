@@ -53,13 +53,14 @@
 - Server PR #68 is merged and deployment run 45476296916 succeeded. The endpoint
   `https://api.socialdock.studio/mcp` responds in production on the existing core
   port; initialization, discovery and all three tools passed live HTTPS checks.
-  A large-caption request returns 413 at the host Nginx: its scoped `/mcp` body
-  and memory-buffer limits still need to be aligned and retested.
+  The host Nginx adjustment is verified: exactly 512 KiB passes and one extra
+  byte returns 413. A 63,206-character accented Facebook caption passed the
+  public text check.
 - Keep `chatgpt/` maintained as the standalone version. No shared skill change.
 - Core CI passed: 34 MCP Lua contracts and 6 actual HTTP tests. Package archive
   checks and Claude CLI validation passed. OpenAI portal ingestion must confirm
   its documented authentication extension (not recognized by the generic schema).
-- Outstanding: host Nginx large-request adjustment, public privacy/skill disclosure updates,
+- Outstanding: public privacy/skill disclosure updates,
   ChatGPT acceptance and demo recording, Claude structural validation before
   main merge, new MCP draft, domain verification, review and publication.
 - No connected package has been submitted or approved by these source changes.
