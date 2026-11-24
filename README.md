@@ -7,7 +7,7 @@
 few words about the video: it writes the YouTube titles and descriptions and the
 captions for Instagram, Facebook, LinkedIn, TikTok, Pinterest and Threads, natively
 in each language you need, then builds a **SocialDock pack**, one ZIP that the
-[SocialDock](https://app.socialdock.studio/skill) Chrome extension or Android app
+[SocialDock](https://socialdock.studio/skill) Chrome extension or Android app
 imports. You review every text and destination in SocialDock before anything is
 published.
 
@@ -65,7 +65,7 @@ Local packs can hold videos up to 16 GiB.
 ## Support
 
 DooWan · [contact@socialdock.studio](mailto:contact@socialdock.studio) ·
-[app.socialdock.studio/skill](https://app.socialdock.studio/skill) · MIT licence
+[socialdock.studio/skill](https://socialdock.studio/skill) · MIT licence
 
 ## ChatGPT
 

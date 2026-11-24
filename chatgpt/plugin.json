@@ -6,9 +6,9 @@
   "author": {
     "name": "DooWan",
     "email": "contact@socialdock.studio",
-    "url": "https://app.socialdock.studio/skill"
+    "url": "https://socialdock.studio/skill"
   },
-  "homepage": "https://app.socialdock.studio/skill",
+  "homepage": "https://socialdock.studio/skill",
   "repository": "https://github.com/decryptus/socialdock-skills",
   "license": "MIT",
   "keywords": [
@@ -34,10 +34,10 @@
           "Write captions",
           "Create SocialDock packs"
         ],
-        "websiteURL": "https://app.socialdock.studio/skill",
+        "websiteURL": "https://socialdock.studio/skill",
         "supportURL": "https://github.com/decryptus/socialdock-skills/issues",
-        "privacyPolicyURL": "https://app.socialdock.studio/privacy",
-        "termsOfServiceURL": "https://app.socialdock.studio/terms",
+        "privacyPolicyURL": "https://socialdock.studio/privacy",
+        "termsOfServiceURL": "https://socialdock.studio/terms",
         "defaultPrompt": [
           "Create a SocialDock pack in French and English from this video and brief.",
           "Prepare YouTube titles and descriptions and Instagram captions for my attached video.",

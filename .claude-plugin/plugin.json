@@ -6,9 +6,9 @@
   "author": {
     "name": "DooWan",
     "email": "contact@socialdock.studio",
-    "url": "https://app.socialdock.studio/skill"
+    "url": "https://socialdock.studio/skill"
   },
-  "homepage": "https://app.socialdock.studio/skill",
+  "homepage": "https://socialdock.studio/skill",
   "repository": "https://github.com/decryptus/socialdock-skills",
   "license": "MIT",
   "keywords": [
@@ -23,8 +23,8 @@
     "multilingual"
   ],
   "icon": ".claude-plugin/icon.png",
-  "privacyPolicyUrl": "https://app.socialdock.studio/privacy",
-  "termsOfServiceUrl": "https://app.socialdock.studio/terms",
+  "privacyPolicyUrl": "https://socialdock.studio/privacy",
+  "termsOfServiceUrl": "https://socialdock.studio/terms",
   "supportUrl": "mailto:contact@socialdock.studio",
-  "documentationUrl": "https://app.socialdock.studio/skill"
+  "documentationUrl": "https://socialdock.studio/skill"
 }

@@ -20,7 +20,7 @@ The plugin contains instructions and a logo only. It has no MCP server, account 
 
 Publisher: DooWan. Support: contact@socialdock.studio.
 
-[Documentation](https://app.socialdock.studio/skill) · [Privacy](https://app.socialdock.studio/privacy) · [Terms](https://app.socialdock.studio/terms)
+[Documentation](https://socialdock.studio/skill) · [Privacy](https://socialdock.studio/privacy) · [Terms](https://socialdock.studio/terms)
 
 ## Shared instructions
 

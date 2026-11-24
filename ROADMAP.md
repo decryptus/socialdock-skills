@@ -8,7 +8,7 @@
 - Instruction-only plugin (directory rules for non-Verified organisations): no
   scripts, nothing to install.
 - Submitted to Anthropic's plugin directory (portal validation passed; waiting for
-  the security scan and review). Public page: https://app.socialdock.studio/skill.
+  the security scan and review). Public page: https://socialdock.studio/skill.
 
 ## Next
 
