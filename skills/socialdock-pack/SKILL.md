@@ -74,4 +74,4 @@ first words of each caption). Remind them to import it in SocialDock
 (**Publications → Import a pack**), review the captions and destinations, then
 publish. Local packs can hold videos up to 16 GiB.
 
-More about SocialDock and the pack format: https://app.socialdock.studio/skill
+More about SocialDock and the pack format: https://socialdock.studio/skill
