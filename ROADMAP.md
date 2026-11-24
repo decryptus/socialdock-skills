@@ -45,3 +45,15 @@
   new skills-only submissions are not accepted, plus a category warning.
 - The corrected 1.0.1 ZIP is prepared for manual upload, not submitted, approved
   or published. Changing publisher metadata does not remove the submission block.
+# Connected ChatGPT variant — November 24, 2026
+
+- Prepared `chatgpt-mcp/` as a separate development variant with Le New Deal
+  publisher, no-auth Streamable HTTP metadata, a connected workflow wrapping the
+  shared pack instructions, and five positive/three negative review cases.
+- Server implementation: `decryptus/socialdock-core`, PR #68; intended URL
+  `https://api.socialdock.studio/mcp`, same existing core port.
+- Keep `chatgpt/` maintained as the standalone version. No shared skill change.
+- Outstanding: core CI/deployment, public privacy/skill disclosure updates,
+  ChatGPT acceptance and demo recording, Claude structural validation before
+  main merge, new MCP draft, domain verification, review and publication.
+- No connected package has been submitted or approved by these source changes.

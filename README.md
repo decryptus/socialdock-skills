@@ -45,7 +45,7 @@ description 5,000 UTF-8 bytes, tags 450 characters; Instagram and TikTok 2,200
 characters; LinkedIn 3,000; Facebook 63,206; Pinterest caption 800 and title 100;
 Threads 500 UTF-8 bytes. Every network and language needs a matching video edit.
 
-## Private by design
+## Private by design — standalone packages
 
 - Reads the video edits and optional thumbnail you provide and creates a ZIP
   using the host's file tools. In hosted environments such as ChatGPT, files and
@@ -75,4 +75,10 @@ capabilities and requirements. It uses the same shared skill and prepares files
 under the user's own ChatGPT account. Creating the ZIP requires file tools;
 attachment and output limits depend on the host, independently of SocialDock's
 local pack capacity.
+
+The separate [connected ChatGPT draft](chatgpt-mcp/README.md) adds public MCP
+pack rules and checks of selected texts and declared paths. Those texts, manifest
+fields and file names are sent to SocialDock; videos and ZIP bytes are not. It
+requires no account and cannot publish. It is not deployed or published merely
+because the source is available. Both variants share the same pack workflow.
 

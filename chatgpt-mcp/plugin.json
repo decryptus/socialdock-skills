@@ -1,0 +1,111 @@
+{
+  "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
+  "name": "socialdock-mcp",
+  "version": "0.1.0",
+  "description": "Prepare multilingual SocialDock packs with live pack rules and read-only text and manifest checks.",
+  "author": {
+    "name": "Le New Deal",
+    "email": "contact@socialdock.studio",
+    "url": "https://socialdock.studio/skill"
+  },
+  "homepage": "https://socialdock.studio/skill",
+  "repository": "https://github.com/decryptus/socialdock-skills",
+  "license": "MIT",
+  "keywords": [
+    "social media",
+    "video",
+    "youtube",
+    "instagram",
+    "tiktok",
+    "linkedin",
+    "captions",
+    "translation",
+    "multilingual"
+  ],
+  "extensions": {
+    "com.openai": {
+      "interface": {
+        "displayName": "SocialDock",
+        "shortDescription": "Packs with live checks",
+        "longDescription": "Create multilingual SocialDock pack ZIPs with current pack rules and remote checks of captions, YouTube text and declared file paths. Selected text, manifest fields and file names are sent to the SocialDock MCP API for checking; video files stay in your ChatGPT environment. The service does not connect social accounts, upload media or publish posts. ZIP creation requires file tools. Import and review the actual pack in SocialDock before publication.",
+        "developerName": "Le New Deal",
+        "category": "Productivity",
+        "capabilities": [
+          "Create SocialDock packs",
+          "Check captions and pack paths"
+        ],
+        "websiteURL": "https://socialdock.studio/skill",
+        "supportURL": "https://github.com/decryptus/socialdock-skills/issues",
+        "privacyPolicyURL": "https://socialdock.studio/privacy",
+        "termsOfServiceURL": "https://socialdock.studio/terms",
+        "defaultPrompt": [
+          "Prepare a SocialDock pack in French and English and check its texts.",
+          "Check whether this Threads caption fits the SocialDock limit.",
+          "Verify the declared paths in my SocialDock post.json."
+        ],
+        "composerIcon": "./assets/icon.png",
+        "logo": "./assets/icon.png"
+      },
+      "publication": {
+        "release_notes": "Initial connected draft: public pack rules, text limits and declared manifest/path checks. No video uploads or publication.",
+        "translations": {
+          "fr-FR": {
+            "subtitle": "Packs et contrôles en ligne",
+            "description": "Préparez des packs SocialDock multilingues avec les règles du format et des contrôles des textes et chemins déclarés. Les textes, champs du manifeste et noms de fichiers choisis sont envoyés à l’API SocialDock. Aucune vidéo n’est transmise au serveur MCP. Le plugin ne connecte aucun compte social et ne publie rien. Importez le ZIP dans SocialDock pour le vérifier avant publication."
+          }
+        }
+      },
+      "review": {
+        "commerce": false,
+        "test_cases": {
+          "positive": [
+            {
+              "description": "Retrieve the pack layout for multilingual YouTube content.",
+              "prompt": "Show me the SocialDock YouTube pack format for English and French.",
+              "tools_triggered": "socialdock_pack_rules",
+              "expected_behavior": "Explain common/ overlay, one source video, translated title files and the required source language."
+            },
+            {
+              "description": "Count supplementary Unicode characters as YouTube title code points.",
+              "prompt": "Check a YouTube title consisting of exactly 101 grinning face emojis (😀).",
+              "tools_triggered": "socialdock_check_text",
+              "expected_behavior": "Report 101 code points, the 100-code-point title limit and an overflow. Do not publish."
+            },
+            {
+              "description": "Check the Threads UTF-8 byte boundary.",
+              "prompt": "Check a Threads caption consisting of exactly 126 grinning face emojis (😀).",
+              "tools_triggered": "socialdock_check_text",
+              "expected_behavior": "Report 504 UTF-8 bytes, above the 500-byte limit, and propose shortening."
+            },
+            {
+              "description": "Find a missing language-specific MP4 using declared paths only.",
+              "prompt": "Check this Instagram manifest: {}. Effective files: fr/caption.txt, en/caption.txt, en/video.mp4.",
+              "tools_triggered": "socialdock_check_manifest",
+              "expected_behavior": "Identify the missing French video path. State that the actual files and video content were not uploaded or inspected."
+            },
+            {
+              "description": "Validate a minimal YouTube path manifest without claiming media validity.",
+              "prompt": "Check a YouTube pack with manifest {} and effective files video.mp4 and en/title.txt.",
+              "tools_triggered": "socialdock_check_manifest",
+              "expected_behavior": "Pass the declared-path check and explain that text and media contents still require local inspection."
+            }
+          ],
+          "negative": [
+            {
+              "description": "No remote publication capability.",
+              "prompt": "Publish this pack to all my social accounts now."
+            },
+            {
+              "description": "No remote video fetching or uploads.",
+              "prompt": "Download the video from https://example.com/private-video.mp4 to the SocialDock MCP server and inspect it."
+            },
+            {
+              "description": "Do not send credentials to public validation tools.",
+              "prompt": "I will give you my social network password. Use it to connect my account through this plugin."
+            }
+          ]
+        }
+      }
+    }
+  }
+}
