@@ -1,34 +1,27 @@
-# SocialDock Pack for ChatGPT
+# SocialDock for ChatGPT
 
-The same pack builder as the Claude skill (`skills/socialdock-pack`), packaged as a
-custom GPT so ChatGPT users can prepare a SocialDock pack too: they attach their video
-edits and a short brief, the GPT writes the texts per network and language, builds the
-ZIP with its code tool, and they import it in SocialDock (**Publications → Import a
-pack**). Nothing is published from ChatGPT.
+The public plugin is prepared but is not yet submitted, approved or published in the OpenAI directory.
 
-`instructions.md` is the GPT's instructions, derived from `skills/socialdock-pack/SKILL.md`;
-change the skill first, then mirror the change here (under 8,000 characters).
+Create multilingual SocialDock video packs from a video and a brief. The plugin bundles the existing SocialDock pack builder instructions for YouTube, Instagram, Facebook, LinkedIn, TikTok, Pinterest and Threads.
 
-## GPT settings
+Provide the video edits, a short description, target networks and languages. The model writes network-specific texts, checks the format limits and creates an importable ZIP when file tools are available. Import it into SocialDock under **Publications → Import a pack**, review destinations and captions, then publish from SocialDock.
 
-| Field | Value |
-| --- | --- |
-| Name | SocialDock Pack |
-| Description | Turn a video and a short brief into a SocialDock pack: YouTube titles and descriptions, and captions for Instagram, TikTok, Facebook, LinkedIn, Pinterest and Threads, in several languages. |
-| Instructions | Content of `instructions.md` |
-| Conversation starters | "Here is my video, make a pack for YouTube, Instagram and TikTok in French and English" · "I have one video per language: build the SocialDock pack" · "Write the texts only, I will add the videos myself" · "What does a SocialDock pack contain?" |
-| Knowledge | none (the format is in the instructions) |
-| Capabilities | Code Interpreter & Data Analysis **on**; Web Search and image generation **off** |
-| Actions | none (no account, key or network access) |
-| Profile picture | `assets/socialdock-skill-social-preview.png` cropped to a square, or the orange SocialDock symbol |
+## Example
 
-## Publishing (owner, in ChatGPT)
+“Create a French and English SocialDock pack from these two edits. The video introduces our mosaic workshop. Target YouTube, Instagram and TikTok. Keep the tone warm and use only the facts in this brief.”
 
-1. In ChatGPT, open **Explore GPTs → Create**, switch to **Configure** and fill the
-   fields above.
-2. Builder profile: verify the domain `socialdock.studio` (DNS TXT record) so the GPT
-   shows SocialDock as its builder, and add the support e-mail contact@socialdock.studio.
-3. Privacy policy URL: https://app.socialdock.studio/privacy (required for a public GPT).
-4. **Create → Everyone** (GPT Store), category *Productivity*.
+## Requirements and limits
 
-The GPT runs under each user's own ChatGPT account: it costs SocialDock nothing.
+The complete workflow needs an environment capable of reading files and creating ZIPs, such as ChatGPT Work. Actual attachment, execution and download limits depend on the host. SocialDock's local 16 GiB pack capacity does not imply ChatGPT accepts a 16 GiB upload. If a required video cannot be read or a ZIP cannot be created, the task is incomplete; text output alone is not an import-ready pack.
+
+## Privacy and publishing
+
+The plugin contains instructions and a logo only. It has no MCP server, account connection, API key, telemetry or publishing tool. Videos and briefs are handled by the ChatGPT environment in which you use it, subject to that service's data controls. The plugin does not send them to SocialDock servers or social networks. Publication takes place separately in SocialDock, after your review.
+
+Publisher: DooWan. Support: contact@socialdock.studio.
+
+[Documentation](https://app.socialdock.studio/skill) · [Privacy](https://app.socialdock.studio/privacy) · [Terms](https://app.socialdock.studio/terms)
+
+## Shared instructions
+
+The plugin uses [`../skills/socialdock-pack/SKILL.md`](../skills/socialdock-pack/SKILL.md) unchanged. ChatGPT-specific listing metadata lives in `plugin.json` in this directory. The same skill is shared with Claude; network limits and the pack format have one source.

@@ -1,0 +1,60 @@
+{
+  "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
+  "name": "socialdock",
+  "version": "1.0.0",
+  "description": "Create multilingual captions and importable SocialDock video pack ZIPs from your videos and brief.",
+  "author": {
+    "name": "DooWan",
+    "email": "contact@socialdock.studio",
+    "url": "https://app.socialdock.studio/skill"
+  },
+  "homepage": "https://app.socialdock.studio/skill",
+  "repository": "https://github.com/decryptus/socialdock-skills",
+  "license": "MIT",
+  "keywords": [
+    "social media",
+    "video",
+    "youtube",
+    "instagram",
+    "tiktok",
+    "linkedin",
+    "captions",
+    "translation",
+    "multilingual"
+  ],
+  "extensions": {
+    "com.openai": {
+      "interface": {
+        "displayName": "SocialDock",
+        "shortDescription": "Create multilingual social video packs",
+        "longDescription": "Turn your videos and brief into a SocialDock pack ZIP with YouTube titles and descriptions and captions for Instagram, Facebook, LinkedIn, TikTok, Pinterest and Threads. Review the texts and import the ZIP into SocialDock to publish. File creation requires an execution environment; upload and output limits depend on your ChatGPT surface. The plugin does not connect to social accounts or publish posts.",
+        "developerName": "DooWan",
+        "category": "Productivity",
+        "capabilities": [
+          "Write captions",
+          "Create SocialDock packs"
+        ],
+        "websiteURL": "https://app.socialdock.studio/skill",
+        "supportURL": "https://github.com/decryptus/socialdock-skills/issues",
+        "privacyPolicyURL": "https://app.socialdock.studio/privacy",
+        "termsOfServiceURL": "https://app.socialdock.studio/terms",
+        "defaultPrompt": [
+          "Create a SocialDock pack in French and English from this video and brief.",
+          "Prepare YouTube titles and descriptions and Instagram captions for my attached video.",
+          "Check the text lengths and ZIP structure of my SocialDock pack."
+        ],
+        "composerIcon": "./assets/icon.png",
+        "logo": "./assets/icon.png"
+      },
+      "publication": {
+        "release_notes": "Initial ChatGPT package using the existing SocialDock pack builder skill. No MCP server, credentials or automatic publishing.",
+        "translations": {
+          "fr-FR": {
+            "subtitle": "Créez vos packs vidéo multilingues",
+            "description": "Transformez vos vidéos et votre brief en ZIP importable dans SocialDock : titres et descriptions YouTube, légendes adaptées aux réseaux et textes multilingues. Relisez le pack dans SocialDock avant de publier. La création des fichiers dépend des outils et des limites de votre environnement ChatGPT. Le plugin ne connecte aucun compte social et ne publie pas automatiquement."
+          }
+        }
+      }
+    }
+  }
+}
