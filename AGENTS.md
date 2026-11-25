@@ -95,11 +95,16 @@ are debt to remove, not examples to copy.
 - Contributor and side material stays on `main` only: `AGENTS.md`, `ROADMAP.md`,
   `chatgpt/` and `assets/socialdock-skill-social-preview.png`. Directories refuse
   `AGENTS.md` and `CLAUDE.md` from organisations that are not Verified.
+- The marketplace on `main` installs the plugin from `release`
+  (`"source": {"source": "github", "repo": "decryptus/socialdock-skills",
+  "ref": "release"}`), so `claude plugin marketplace add
+  decryptus/socialdock-skills` never copies `main`-only material into the plugin
+  cache. On `release`, `marketplace.json` keeps `"source": "./"`.
 - To release, raise `version` in `plugin.json` on `main`, then commit to
   `release` the allowed paths from `main` with
   `git checkout main -- <allowed paths>`, never a merge that would bring back
-  excluded files. Links from the README to excluded material use absolute
-  GitHub URLs on `main`.
+  excluded files. Do not copy `.claude-plugin/marketplace.json` from `main`.
+  Links from the README to excluded material use absolute GitHub URLs on `main`.
 
 ## Review and verification
 
