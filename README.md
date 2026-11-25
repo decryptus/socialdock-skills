@@ -69,6 +69,6 @@ Le New Deal · [contact@socialdock.studio](mailto:contact@socialdock.studio) ·
 ## ChatGPT
 
 The same pack builder exists as a custom GPT for ChatGPT users: see
-[`chatgpt/`](chatgpt/README.md) for its instructions and settings. It also only
+[`chatgpt/`](https://github.com/decryptus/socialdock-skills/tree/main/chatgpt) for its instructions and settings. It also only
 prepares files, under the user's own ChatGPT account.
 
