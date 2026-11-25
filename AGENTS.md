@@ -6,6 +6,10 @@ Claude Code with `/plugin install socialdock --marketplace decryptus/socialdock-
 It holds the plugin manifest, the marketplace manifest, the listing icon and
 banners and the shared `socialdock-pack` skill. Provider-specific metadata stays
 in `.claude-plugin/` for Claude and `chatgpt/` for the public ChatGPT plugin.
+`chatgpt-mcp/` is the separately authorized connected ChatGPT variant; its public
+remote MCP server runs in `socialdock-core`, never in this package. The standalone
+`chatgpt/` variant remains maintained. The connected skill wraps the unchanged
+shared skill as a packaged reference; do not duplicate the pack workflow source.
 `chatgpt/plugin.json` is source metadata: assemble it at the ZIP root together
 with the shared skill and assets as documented in `chatgpt/PUBLISHING.md`.
 Do not duplicate the skill or put an OpenAI manifest at the repository root,
@@ -33,9 +37,11 @@ are debt to remove, not examples to copy.
 
 ## Dependencies and responsibilities
 
-- The plugin is instructions only. Skills tell Claude what to ask, what to write
+- The standalone plugin is instructions only. Skills tell Claude what to ask, what to write
   and how to lay out a pack; Claude does the work with its own file tools. Do not
-  add runtime code, MCP servers, hooks or package installs to the plugin.
+  add runtime code, hosted MCP implementations, hooks or package installs to the
+  plugin. The connected variant may declare the public HTTPS MCP endpoint in its
+  own `chatgpt-mcp/mcp.json`; never activate it at the Claude repository root.
 - The pack format, folder layout and per-network limits belong to SocialDock. The
   skill restates them; it never extends or reinterprets them. A pack the skill
   describes must be accepted by the SocialDock pack reader unchanged.
@@ -61,12 +67,17 @@ are debt to remove, not examples to copy.
 
 ## Product constraints
 
-- Private by design: a skill reads only the files the user provides and writes
+- Standalone privacy: a skill reads only the files the user provides and writes
   the pack using the host's file tools. Hosted services process those files under
   their own data controls; do not claim all processing stays on the user's device.
   The plugin makes no network requests, sends no data to SocialDock or social
   networks, requires no SocialDock account, key or token, and adds no telemetry. Any change to this requires an explicit product decision
   and an updated README, listing answers and privacy page.
+- Connected MCP privacy (authorized November 24, 2026): selected text, manifest
+  fields and file names can be sent to `https://api.socialdock.studio/mcp` for
+  read-only checks. No media bytes, credentials, account access or publication.
+  Disclose the transfer before checks; update the public privacy/skill pages
+  before release. A metadata check is never full ZIP or provider validation.
 - Never store or relay customer video bytes on SocialDock servers (same rule as
   SocialDock); the plugin never handles hosting.
 - Never invent facts, prices, dates, results or quotes in generated texts; a thin
