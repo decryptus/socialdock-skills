@@ -85,13 +85,29 @@ are debt to remove, not examples to copy.
 - The README describes everything the plugin reads, writes, sends or fetches, and
   must stay at least 40 words outside code blocks.
 
+## Release branch
+
+- `main` is the development branch. The directory tracks `release` (portal
+  setting *Tracked branch or tag*), which holds only what the published plugin
+  needs: `.claude-plugin/` (`plugin.json`, `icon.png`, `marketplace.json`),
+  `skills/`, `README.md`, `LICENSE`, `.gitignore` and the README banners
+  (`assets/socialdock-skill-banner-light.png`, `assets/socialdock-skill-banner-dark.png`).
+- Contributor and side material stays on `main` only: `AGENTS.md`, `ROADMAP.md`,
+  `chatgpt/` and `assets/socialdock-skill-social-preview.png`. Directories refuse
+  `AGENTS.md` and `CLAUDE.md` from organisations that are not Verified.
+- To release, raise `version` in `plugin.json` on `main`, then commit to
+  `release` the allowed paths from `main` with
+  `git checkout main -- <allowed paths>`, never a merge that would bring back
+  excluded files. Links from the README to excluded material use absolute
+  GitHub URLs on `main`.
+
 ## Review and verification
 
 - Run `claude plugin validate .` before every push. Only the directory-only
   warnings (`icon` and listing-link fields) are acceptable.
 - Validate in the developer portal (claude.ai/directory/manage) for changes to
   files, manifests or structure; fix every blocking finding before pushing to
-  `main`, which the directory scans and, after the first approval, publishes.
+  `release`, which the directory tracks and, after the first approval, publishes.
 - After a change to a skill, generate a pack from a real brief and read it with
   the SocialDock pack reader in the private repository
   (`tests/test_build_pack.py` there). Compare output with and without the plugin
