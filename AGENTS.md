@@ -155,6 +155,30 @@ are debt to remove, not examples to copy.
   English (public page). A French README section is planned; keep both languages
   equivalent when it exists.
 
+## Development, qualification and release
+
+- Keep merging, building a release candidate, operational qualification and
+  stable publication as separate steps. A merge never authorizes a publication
+  or a deployment.
+- Merge a development PR when the required CI checks pass and the owner has
+  reviewed it. Operational qualification, where the project defines one, protects
+  stable publication; it does not gate ordinary merges.
+- Publish release candidates (`X.Y.ZrcN` or the platform's pre-release
+  equivalent) from the exact tested CI artifacts, never rebuilt, and only to
+  pre-release channels. Merging the reviewed PR that sets a candidate version is
+  the explicit request to publish that candidate.
+- Bind every qualification result to the digest of the exact candidate artifact.
+  Never fabricate, hand-edit or reuse evidence produced for a different artifact.
+- Publish a stable release only from a reviewed final build that is equivalent to
+  the qualified candidate except for its version identity, after the required
+  checks pass. Never overwrite tags, releases or registry versions.
+- In CI, read release versions from the project metadata; do not hard-code them
+  for each release.
+- Server operations go through the closed commands of `decryptus/deploy`
+  (application deployment) and `decryptus/si` (system maintenance). Application and
+  website repositories build and test artifacts; they do not administer servers or
+  hold server credentials.
+
 ## Complete delivery and release synchronization
 
 - Treat every release as a consistency check across: `plugin.json` version, the
