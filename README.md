@@ -7,7 +7,7 @@
 few words about the video: it writes the YouTube titles and descriptions and the
 captions for Instagram, Facebook, LinkedIn, TikTok, Pinterest and Threads, natively
 in each language you need, then builds a **SocialDock pack**, one ZIP that the
-[SocialDock](https://app.socialdock.studio/skill) Chrome extension or Android app
+[SocialDock](https://socialdock.studio/skill) Chrome extension or Android app
 imports. You review every text and destination in SocialDock before anything is
 published.
 
@@ -63,12 +63,12 @@ Local packs can hold videos up to 16 GiB.
 
 ## Support
 
-DooWan · [contact@socialdock.studio](mailto:contact@socialdock.studio) ·
-[app.socialdock.studio/skill](https://app.socialdock.studio/skill) · MIT licence
+Le New Deal · [contact@socialdock.studio](mailto:contact@socialdock.studio) ·
+[socialdock.studio/skill](https://socialdock.studio/skill) · MIT licence
 
 ## ChatGPT
 
 The same pack builder exists as a custom GPT for ChatGPT users: see
-[`chatgpt/`](chatgpt/README.md) for its instructions and settings. It also only
+[`chatgpt/`](https://github.com/decryptus/socialdock-skills/tree/main/chatgpt) for its instructions and settings. It also only
 prepares files, under the user's own ChatGPT account.
 

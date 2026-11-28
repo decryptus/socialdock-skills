@@ -66,7 +66,7 @@ are debt to remove, not examples to copy.
 - Never invent facts, prices, dates, results or quotes in generated texts; a thin
   brief yields neutral texts and a note on what to add.
 - Never present the plugin as official Anthropic software or use another brand's
-  name or likeness. The listing name is `socialdock`, publisher DooWan.
+  name or likeness. The listing name is `socialdock`, publisher Le New Deal.
 - Contact for Anthropic and users: contact@socialdock.studio.
 
 ## Directory rules (blocking)
@@ -85,13 +85,34 @@ are debt to remove, not examples to copy.
 - The README describes everything the plugin reads, writes, sends or fetches, and
   must stay at least 40 words outside code blocks.
 
+## Release branch
+
+- `main` is the development branch. The directory tracks `release` (portal
+  setting *Tracked branch or tag*), which holds only what the published plugin
+  needs: `.claude-plugin/` (`plugin.json`, `icon.png`, `marketplace.json`),
+  `skills/`, `README.md`, `LICENSE`, `.gitignore` and the README banners
+  (`assets/socialdock-skill-banner-light.png`, `assets/socialdock-skill-banner-dark.png`).
+- Contributor and side material stays on `main` only: `AGENTS.md`, `ROADMAP.md`,
+  `chatgpt/` and `assets/socialdock-skill-social-preview.png`. Directories refuse
+  `AGENTS.md` and `CLAUDE.md` from organisations that are not Verified.
+- The marketplace on `main` installs the plugin from `release`
+  (`"source": {"source": "github", "repo": "decryptus/socialdock-skills",
+  "ref": "release"}`), so `claude plugin marketplace add
+  decryptus/socialdock-skills` never copies `main`-only material into the plugin
+  cache. On `release`, `marketplace.json` keeps `"source": "./"`.
+- To release, raise `version` in `plugin.json` on `main`, then commit to
+  `release` the allowed paths from `main` with
+  `git checkout main -- <allowed paths>`, never a merge that would bring back
+  excluded files. Do not copy `.claude-plugin/marketplace.json` from `main`.
+  Links from the README to excluded material use absolute GitHub URLs on `main`.
+
 ## Review and verification
 
 - Run `claude plugin validate .` before every push. Only the directory-only
   warnings (`icon` and listing-link fields) are acceptable.
 - Validate in the developer portal (claude.ai/directory/manage) for changes to
   files, manifests or structure; fix every blocking finding before pushing to
-  `main`, which the directory scans and, after the first approval, publishes.
+  `release`, which the directory tracks and, after the first approval, publishes.
 - After a change to a skill, generate a pack from a real brief and read it with
   the SocialDock pack reader in the private repository
   (`tests/test_build_pack.py` there). Compare output with and without the plugin
@@ -110,7 +131,7 @@ are debt to remove, not examples to copy.
 ## Copyright review
 
 - Review project-owned copyright notices and manifest metadata when preparing a
-  release. Keep the original start year and attribution (DooWan, 2026) and update
+  release. Keep the original start year and attribution (Le New Deal, 2026; published as DooWan until November 24, 2026) and update
   the end year for maintained material to reflect actual project work.
 - Keep `plugin.json`, `marketplace.json`, the README and the LICENSE consistent.
   Do not alter the dates in the standard license text.
@@ -134,6 +155,30 @@ are debt to remove, not examples to copy.
   English (public page). A French README section is planned; keep both languages
   equivalent when it exists.
 
+## Development, qualification and release
+
+- Keep merging, building a release candidate, operational qualification and
+  stable publication as separate steps. A merge never authorizes a publication
+  or a deployment.
+- Merge a development PR when the required CI checks pass and the owner has
+  reviewed it. Operational qualification, where the project defines one, protects
+  stable publication; it does not gate ordinary merges.
+- Publish release candidates (`X.Y.ZrcN` or the platform's pre-release
+  equivalent) from the exact tested CI artifacts, never rebuilt, and only to
+  pre-release channels. Merging the reviewed PR that sets a candidate version is
+  the explicit request to publish that candidate.
+- Bind every qualification result to the digest of the exact candidate artifact.
+  Never fabricate, hand-edit or reuse evidence produced for a different artifact.
+- Publish a stable release only from a reviewed final build that is equivalent to
+  the qualified candidate except for its version identity, after the required
+  checks pass. Never overwrite tags, releases or registry versions.
+- In CI, read release versions from the project metadata; do not hard-code them
+  for each release.
+- Server operations go through the closed commands of `decryptus/deploy`
+  (application deployment) and `decryptus/si` (system maintenance). Application and
+  website repositories build and test artifacts; they do not administer servers or
+  hold server credentials.
+
 ## Complete delivery and release synchronization
 
 - Treat every release as a consistency check across: `plugin.json` version, the
@@ -152,6 +197,42 @@ are debt to remove, not examples to copy.
 - Pack-format and limit changes belong to `decryptus/socialdock`; site and
   contact changes to `decryptus/socialdock-core`. This repository only mirrors
   them. Record in the contribution which repository owns a new rule.
+
+## Deliverable and deployment contents
+
+- Every deliverable and deployment ships only what the product needs to install,
+  run and meet its legal obligations. This covers source tarballs and sdists,
+  wheels, Docker images, Debian packages, GitHub release assets, browser
+  extensions, mobile packages (APK/AAB/IPA), Claude skills and plugins, ChatGPT
+  apps and instructions, and published websites.
+- Never ship repository or maintainer material: `AGENTS.md`, `CLAUDE.md` and
+  other agent instructions, roadmaps, contribution guides, reviews and acceptance
+  records, CI configuration (`.github/`), tests and fixtures, development
+  scripts, Dockerfiles and build tooling, editor/VCS files, local configuration,
+  secrets or credentials.
+- Keep what is required: runtime code and assets, the default configuration and
+  examples the product loads or documents for installation, `LICENSE` and
+  required notices, and the README or metadata a registry needs to describe the
+  package. Ship user documentation only in deliverables meant to carry it.
+- Select contents with explicit allow-lists: a `.dockerignore` starting with `*`,
+  a `MANIFEST.in` without broad `graft`, explicit package data, a dedicated build
+  directory for sites and plugins, and `export-ignore` in `.gitattributes` for
+  GitHub source archives. Never publish a repository root or `COPY . .` into a
+  final image.
+- Before each release or deployment, list the actual artifact contents (sdist and
+  wheel listings, image filesystem, archive listing, deployed URLs) and remove
+  any non-essential file before publishing. Report this check in the handoff.
+
+## Configuration file format
+
+- Prefer YAML (`.yaml` / `.yml`) over JSON for project configuration files: it is
+  easier to read, supports comments and produces clearer diffs.
+- JSON remains acceptable when a tool or ecosystem requires it or does not support
+  YAML (for example `package.json`, `tsconfig.json`, `composer.json`). Converting
+  existing JSON files is not required.
+- When a tool accepts both formats, use YAML for new configuration.
+- In YAML, quote ambiguous scalars (`"yes"`, `"no"`, `"on"`, `"off"`, versions such
+  as `"1.10"`) to avoid implicit type conversion.
 
 ## Brand assets placement
 

@@ -28,7 +28,7 @@ change the skill first, then mirror the change here (under 8,000 characters).
    fields above.
 2. Builder profile: verify the domain `socialdock.studio` (DNS TXT record) so the GPT
    shows SocialDock as its builder, and add the support e-mail contact@socialdock.studio.
-3. Privacy policy URL: https://app.socialdock.studio/privacy (required for a public GPT).
+3. Privacy policy URL: https://socialdock.studio/privacy (required for a public GPT).
 4. **Create → Everyone** (GPT Store), category *Productivity*.
 
 The GPT runs under each user's own ChatGPT account: it costs SocialDock nothing.
