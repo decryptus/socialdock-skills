@@ -40,8 +40,12 @@ Write natively in each language (not a literal translation) and adapt to each ne
 | Pinterest | Pin title (keywords) and description as caption | Title 100, caption 800 characters |
 | Threads | Very short, conversational | 500 UTF-8 bytes |
 
-No `<` or `>` characters anywhere. Keep URLs exactly as given. Count characters
-(and UTF-8 bytes where stated) before writing files, and shorten anything over a limit.
+No `<` or `>` characters anywhere. Write every web address in full with `https://`
+(add it to a bare address such as `example.com`): networks do not all turn a bare
+address into a link, and Instagram and TikTok captions show none clickable. Keep the
+address itself as given. Each network counts differently (characters, or UTF-8 bytes
+where stated): count before writing files, and shorten anything over a limit at the end
+of a sentence, or at least of a word, never in the middle of one.
 
 ## 3. Build the ZIP
 
@@ -60,6 +64,12 @@ Write exactly this layout with Python's `zipfile` (or any ZIP tool):
   `facebook`, `linkedin`, `tiktok`, `pinterest`, `threads`) and language, plus
   `pinterest/<lang>/title.txt` when a Pin title is given. Every `<network>/<lang>/`
   needs a matching `common/<lang>/video.mp4`.
+- Optional, only when the user wants SocialDock to adapt the texts at import with their
+  own AI (for example "add Hindi on YouTube", "formal on LinkedIn"): `prompt.txt` at the
+  root for every text and `<network>/prompt.txt` for one network (UTF-8, at most 2,000
+  characters each, plain instructions, no model settings). SocialDock sends them to the
+  AI configured in the user's profile, then the instructions typed at import, which win
+  on conflict.
 - Lowercase network and language folder names, valid language codes (`en`, `fr`,
   `pt-BR`), nothing else in the archive. YouTube is optional: a pack can target only
   social networks, but `common/` alone publishes nothing.

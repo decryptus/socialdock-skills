@@ -10,6 +10,13 @@
 - Submitted to Anthropic's plugin directory (portal validation passed; waiting for
   the security scan and review). Public page: https://socialdock.studio/skill.
 
+## 1.0.2 — prepared November 28, 2026 (not released)
+
+- The skill and the ChatGPT instructions can write optional `prompt.txt` files (root for
+  every text, `<network>/prompt.txt` for one network) that SocialDock sends to the user's
+  AI at import; web addresses always in full with `https://`; texts shortened at the end
+  of a sentence or word, never in the middle. Release: copy to `release` per AGENTS.md.
+
 ## Next
 
 - After approval: publish the first version, set up push updates on the plugin's
