@@ -1,7 +1,7 @@
 {
   "name": "socialdock",
   "displayName": "SocialDock",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Write YouTube titles and descriptions and per-network captions in several languages from a video and a short brief, then build a SocialDock pack ZIP ready to import. Runs locally; nothing is sent or published.",
   "author": {
     "name": "Le New Deal",
