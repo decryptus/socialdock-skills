@@ -70,6 +70,10 @@ Write exactly this layout with Python's `zipfile` (or any ZIP tool):
   characters each, plain instructions, no model settings). SocialDock sends them to the
   AI configured in the user's profile, then the instructions typed at import, which win
   on conflict.
+- Optional, only when the user names Pinterest boards: `pinterest/boards.txt` (UTF-8), one
+  board name per line as the user wrote it, or `pinterest/<lang>/boards.txt` when the
+  boards differ by language. Never invent a board name: without this file SocialDock
+  uses the profile's default boards or asks the user.
 - Lowercase network and language folder names, valid language codes (`en`, `fr`,
   `pt-BR`), nothing else in the archive. YouTube is optional: a pack can target only
   social networks, but `common/` alone publishes nothing.
