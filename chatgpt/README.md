@@ -20,7 +20,7 @@ change the skill first, then mirror the change here (under 8,000 characters).
 | Knowledge | none (the format is in the instructions) |
 | Capabilities | Code Interpreter & Data Analysis **on**; Web Search and image generation **off** |
 | Actions | none (no account, key or network access) |
-| Profile picture | `assets/socialdock-skill-social-preview.png` cropped to a square, or the orange SocialDock symbol |
+| Profile picture | `assets/brand/social/social-preview-1280x640.png` cropped to a square, or the orange SocialDock symbol |
 
 ## Publishing (owner, in ChatGPT)
 
